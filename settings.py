@@ -5,6 +5,8 @@ from cog.utils import str2bool
 
 rel = lambda *x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
+log = logging.getLogger(__name__)
+
 ''' 
 SITE SPECIFIC CONFIGURATION
 These parameters are read from file 'cog_settings.cfg' 
@@ -14,6 +16,61 @@ Each parameter has a default value.
 
 from cog.site_manager import siteManager
 from cog.constants import SECTION_ESGF, SECTION_PID
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(name)s: %(message)s',
+            'style': '%',
+        },
+    },
+    'handlers': {
+        'console': {
+            'formatter': 'verbose',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.getenv('COG_LOG_FILE', rel('cog.log')),
+            'maxBytes': 100*pow(2,20),
+            'backupCount': 10,
+            'formatter': 'verbose',
+        },
+        'search': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.getenv('SEARCH_LOG_FILE', rel('search.log')),
+            'maxBytes': 100*pow(2,20),
+            'backupCount': 10,
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+        'cog': {
+            'handlers': ['file'],
+            'level': os.getenv('COG_LOG_LEVEL', 'INFO'),
+        },
+        'cog.models.search': {
+            'handlers': ['search'],
+            'level': os.getenv('SEARCH_LOG_LEVEL', 'DEBUG'),
+        },
+        'cog.views.views_search': {
+            'handlers': ['search'],
+            'level': os.getenv('SEARCH_LOG_LEVEL', 'DEBUG'),
+        },
+        '__wsgi__': {
+            'handlers': ['file'],
+            'level': os.getenv('COG_LOG_LEVEL', 'INFO'),
+        },
+    },
+}
+
 
 SITE_NAME = siteManager.get('SITE_NAME', default='Local CoG')
 SITE_DOMAIN = siteManager.get('SITE_DOMAIN', default='localhost:8000')
@@ -41,23 +98,23 @@ if siteManager.get('DEBUG', default='False').lower() == 'true':
 else:
     DEBUG = False
 ALLOWED_HOSTS = siteManager.get('ALLOWED_HOSTS', default=SITE_DOMAIN).split(",")
-print 'Using DEBUG=%s ALLOWED_HOSTS=%s' % (DEBUG, ALLOWED_HOSTS)
+log.debug('Using DEBUG=%s ALLOWED_HOSTS=%s' % (DEBUG, ALLOWED_HOSTS))
 IDP_WHITELIST = siteManager.get('IDP_WHITELIST', default=None)
-print 'Using IdP whitelist(s): %s' % IDP_WHITELIST
+log.debug('Using IdP whitelist(s): %s' % IDP_WHITELIST)
 KNOWN_PROVIDERS = siteManager.get('KNOWN_PROVIDERS', default=None)
-print 'Using list of known Identity Providers: %s' % KNOWN_PROVIDERS
+log.debug('Using list of known Identity Providers: %s' % KNOWN_PROVIDERS)
 PEER_NODES = siteManager.get('PEER_NODES', default=None)
 USE_CAPTCHA = str2bool(siteManager.get('USE_CAPTCHA', default='True'))
-print 'Using list of ESGF/CoG peer nodes from: %s' % PEER_NODES
+log.debug('Using list of ESGF/CoG peer nodes from: %s' % PEER_NODES)
 # DEVELOPMENT/PRODUCTION server switch
 PRODUCTION_SERVER = str2bool(siteManager.get('PRODUCTION_SERVER', default='False'))
-print 'Production server flag=%s' % PRODUCTION_SERVER
+log.debug('Production server flag=%s' % PRODUCTION_SERVER)
 
 WPS_ENDPOINT = siteManager.get('WPS_ENDPOINT', default=None);
 # Fields that will be added to the query string
 WPS_FIELDS = siteManager.get('WPS_FIELDS', default='index_node').split(',');
 WPS_DATACART = str2bool(siteManager.get('WPS_DATACART', default='False'))
-print 'WPS endpoint: %s, datacart enabled: %s, fields: %s' % (WPS_ENDPOINT, WPS_DATACART, ','.join(WPS_FIELDS))
+log.debug('WPS endpoint: %s, datacart enabled: %s, fields: %s' % (WPS_ENDPOINT, WPS_DATACART, ','.join(WPS_FIELDS)))
 
 # FIXME
 # ESGF specific settings
@@ -169,7 +226,7 @@ MYMEDIA = os.path.join(siteManager.cog_config_dir, 'mymedia')
 # must be writable by web server
 PROJECT_CONFIG_DIR = os.path.join(MEDIA_ROOT, 'config')
 
-print 'Loading custom templates from directories: %s, %s' % (MYTEMPLATES, MYMEDIA)
+log.debug('Loading custom templates from directories: %s, %s' % (MYTEMPLATES, MYMEDIA))
 
 # Make this unique, and don't share it with anybody.
 #SECRET_KEY = 'yb@$-bub$i_mrxqe5it)v%p=^(f-h&x3%uy040x))19g^iha&#'

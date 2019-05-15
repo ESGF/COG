@@ -16,6 +16,7 @@ import time
 import traceback
 import signal
 import sys
+import logging
 from django.core.wsgi import get_wsgi_application
 
 sys.path.insert(0, '/usr/local/cog/cog_install')
@@ -27,21 +28,15 @@ os.environ["SSL_CERT_FILE"] = "/etc/certs/esgf-ca-bundle.crt"
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
-# print debugging information
-print 'Using Python version: %s' % sys.version
-print 'Using Python path: %s' % sys.path
-print 'PYTHONPATH=%s' % os.environ.get('PYTHONPATH', None)
-print 'LD_LIBRARY_PATH=%s' % os.environ.get('LD_LIBRARY_PATH', None)
-print 'SSL_CERT_DIR=%s' % os.environ.get('SSL_CERT_DIR', None)
-print 'SSL_CERT_FILE=%s' % os.environ.get('SSL_CERT_FILE', None)
 
-try:
-    application = get_wsgi_application()
-    print 'WSGI without exception'
-except Exception:
-    print 'handling WSGI exception'
-    # Error loading applications
-    if 'mod_wsgi' in sys.modules:
-        traceback.print_exc()
-        os.kill(os.getpid(), signal.SIGINT)
-        time.sleep(2.5)
+
+application = get_wsgi_application()
+log = logging.getLogger(__name__)
+log.debug('Using Python version: %s' % sys.version)
+log.debug('Using Python path: %s' % sys.path)
+log.debug('PYTHONPATH=%s' % os.environ.get('PYTHONPATH', None))
+log.debug('LD_LIBRARY_PATH=%s' % os.environ.get('LD_LIBRARY_PATH', None))
+log.debug('SSL_CERT_DIR=%s' % os.environ.get('SSL_CERT_DIR', None))
+log.debug('SSL_CERT_FILE=%s' % os.environ.get('SSL_CERT_FILE', None))
+log.debug('WSGI without exception')
+
