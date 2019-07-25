@@ -7,11 +7,11 @@ Welcome to ESGF CoG's documentation!
 ====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
  
-   overview.rst
-   nodeadmin.rst
-
+   manual/ESGF_Admin_Guide
+   manual/Home_Project_Setup
+   manual/Node_Administrator_Login
 
 
 Indices and tables
