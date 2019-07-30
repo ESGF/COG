@@ -44,10 +44,15 @@ Step 1: Register a new project
 
 For more detailed instructions: View tutorial with screenshots
 
+.. figure:: /images/register_project.png
+   :scale: 95%
+   :alt:
+
+
 Figure 1: Screenshot of the upper corner of a node showing the “Register
 a New Project” link.
 
-Step 2: Approve the new project
+register_projectStep 2: Approve the new project
 -------------------------------
 
 -  All CoG projects, before being accessible, must be approved by the
@@ -61,6 +66,12 @@ Step 2: Approve the new project
 -  Optionally, you may want to check “Is Private?” to prevent the
    project from becoming public before if you are satisfied with its
    initial content.
+
+.. figure:: /images/node_admin_links.png
+   :scale: 95%
+   :alt:
+
+
 
 Figure 2: Screenshot of the lower left portion of the left navigation
 bar showing the “Activate Projets” link (valid in version 3.1 or later).

@@ -12,6 +12,10 @@ Welcome to ESGF CoG's documentation!
    manual/ESGF_Admin_Guide
    manual/Home_Project_Setup
    manual/Node_Administrator_Login
+   manual/Home_Page_Example
+   manual/Data_Search_Configuration
+   
+  
 
 
 Indices and tables

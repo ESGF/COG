@@ -6,12 +6,14 @@
 # Compiled files
 *.pyc
 *.eggs
+*.rst~
 
 # CKEditor
 cog/static/cog/ckeditor
 
 # static files
 static/
+_build/
 
 
 # site media

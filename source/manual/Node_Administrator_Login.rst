@@ -33,6 +33,11 @@ Option 2: OpenID login
 -  Click on the “Login” link in the upper bar menu (Figure 1)
 -  This accesses the URL https:///login/
 
+
+.. figure:: /images/login_link.png
+   :scale: 95%
+   :alt:
+
 Figure 1: Screenshot of the Login link in the upper right corner of CoG.
 
 OpenID: https:///esgf-idp/openid/rootAdmin
