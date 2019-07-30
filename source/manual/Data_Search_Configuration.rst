@@ -1,124 +1,68 @@
 
-Node Home Project Setup
-=======================
+Data Search Configuration
+=========================
 
-Each ESGF-CoG node has a “home” project, which is the top-level project
-that users are redirected to when they access the Node’s top-level URL.
-Typically, the home project describes the Node itself, the institution
-hosting the Node, and the main goals/activities of that Node. When an
-ESGF Node is installed from scratch, a stub project called “TestProject”
-is created and configured as that node home project. You will want to
-replace it with a project named more appropriately for your Node,
-following the steps below (as you are logged in as Node administrator):
+Each CoG project can be configured to expose a data search page that
+allows users to search the distributed ESGF metadata archives with
+custom settings. To do so, the project administrator first needs to
+enable the Data Search widget (see Step 1 below) for that project, then
+use the “Configure Search” page to customize the search target and
+constriaints (Step 2). The project search configuration can be
+completely built using the web interface, or it can be
+exported/imported/changed through text files that are stored on the Node
+where CoG is running.
 
-Step 1: Register a new project
-------------------------------
+Step 1: Turn on the Data Search widget (Figure 1)
+-------------------------------------------------
 
--  Click on the “Register a New Project” link (Figure 1) in the upper
-   right corner of CoG.
--  You must populate at least the following mandatory fields (all other
-   fields can be populated and changed at a later time):
+-  CoG has widgets that exist on the right side of the page.
+-  The Data Search widget allows users to access an ESGF search.
+-  The Data Search widget is OFF by default and must be enabled.
 
-   -  Short Name: choose a short name (no spaces) that is unique for
-      your node. Theconvention for ESGF Nodes is to choose a home
-      project name of the form “ESGF-XXX” where XXX is a unique name for
-      your ESGF Node and institution. Examples: “ESGF-JPL” (for
-      https://esg-datanode.jpl.nasa.gov/projects/esgf-jpl/) or
-      “ESGF-ESRL” (for https://esgf.esrl.noaa.gov/projects/esgf-esrl/).
-      The home project short name is the only attribute of a project
-      that can never be changed, since it enters (in lower case form) in
-      ALL URLs for that project. If you decide you don’t like the name
-      you have chosen, you will have to create a new project, transfer
-      all content from the old to the new project, then deleted the old
-      project.
-   -  Long Name: the project long name will appear as the title of the
-      node home page. This can be changed later using the “Update
-      Project” link in the left “Administrators” menu. Example:
-      “ESGF@NASA/JPL”.
-   -  Description: the project description will be used as the initial
-      content of the node home page. This can be changed later by
-      editing the project home page via the wiki functionality. Example:
-      “Welcome to the ESGF Node at NASA/JPL”.
+   -  View tutorial with screenshots on how to enable the widget https://www.earthsystemcog.org/projects/cog/doc/data_widget
 
--  When done, click “Submit”.
+-  The Data Search widget will always be the first widget in the right
+   column.
+-  Wiki pages have the option of turning off the right widgets.
 
-For more detailed instructions: View tutorial with screenshots
 
-.. figure:: /images/register_project.png
-   :scale: 115%
+.. figure:: /images/search_widget.png
+   :scale: 95%
    :alt:
 
 
-Figure 1: Screenshot of the upper corner of a node showing the “Register
-a New Project” link.
+Figure 1: Screenshot of the Data Search widget
 
-register_projectStep 2: Approve the new project
--------------------------------
+Step 2: Customize the Data Search Constraints
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  All CoG projects, before being accessible, must be approved by the
-   Node Administrator.
--  While you are still logged in as Node Administrator, click on the
-   “CoG Admin” link (Figure 2).
--  On the list of projects, locate the project you just created and
-   click on the corresponding “Update” link.
--  Check the “Is Active?” checkbox to make the project accessible.
--  Click “Submit”.
--  Optionally, you may want to check “Is Private?” to prevent the
-   project from becoming public before if you are satisfied with its
-   initial content.
+-  By default, the search (for any CoG project) will be configured to
+   query the local ESGF search services with no constraints (in
+   particular, this means executing a distributed search across all
+   federated ESGF Nodes). - Most likely, you will want to configure the
+   search for the project specific audience. This can be done either
+   through the web interface, or by importing an already existing search
+   configuration file. These options are described in detail in the
+   following pages:
 
-.. figure:: /images/node_admin_links.png
-   :scale: 115%
-   :alt:
+   -  View tutorial on how to configure general search options https://www.earthsystemcog.org/projects/cog/doc/data_options
+   -  View tutorial on how to configure the search facets https://www.earthsystemcog.org/projects/cog/doc/search_facet_config
+   -  View tutorial on how to import/export the project search
+      configuration https://www.earthsystemcog.org/projects/cog/search_import_export
+- After saving your changes, access the project
+      search page and test that results are returned as you expect.
 
+Optional: Enable New Search Facets
+----------------------------------
 
+Because of security constraints, the ESGF Search Services can not be
+queried with arbitrary facet names, although arbitrary facet names and
+values can be ingested at publishing time into the Solr metadata
+(provided they are valid and don’t create any conflicts). Nontheless, to
+enable a new facet as a valid query parameter, the ESGF Node
+administrator needs only insert that facet in the ESGF configuration
+file:
 
-Figure 2: Screenshot of the lower left portion of the left navigation
-bar showing the “Activate Projets” link (valid in version 3.1 or later).
+/esg/config/facets.properties
 
-Step 3: Configure the new project as the Node “home” project
-------------------------------------------------------------
-
-To make the new project the node home project:
-
-edit: /usr/local/cog/cog_config/cog_settings.cfg change: HOME_PROJECT =
-TestProject to: HOME_PROJECT = example: HOME_PROJECT = ESGF-JPL
-
-Since you are editing this file, you may also want to:
-
--  Choose a new SECRET_KEY (any long, random, unique sequence of
-   characters) : a random string is generated when CoG is first
-   installed, but you may want to replace it with your own long sequence
-   of random characters (any character is allowed).
--  Setup your TIME_ZONE (any valid time zone name supported by the
-   Python datetime package - see wikipedia page for full listing).
-
-Step 4: Save the file and restart the ESGF Node.
-------------------------------------------------
-
--  Check that the node top-level URL: https:/// redirects to:
-   https:///projects//.
-
-Step 5: Edit the node “home” project “home” page
-------------------------------------------------
-
-At this point, you may want to start populating the content of the home
-page for your node home project.
-
-For convenience, we have created an example of a generic ESGF Node home
-page that you are welcome to use as a starting point - see this ESGF
-Node Home Page Example. If you like the example, you can use your
-browser to view the HTML source, and cut-and-paste the HTML code
-(between the “START ESGF HOME PAGE EXAMPLE” and “END ESGF HOME PAGE
-EXAMPLE” lines) into the wiki content of your Node home page. Note that
-you will have to manually download the banner image to your desktop, and
-upload it to your project using the wiki. Also, the template is
-formatted for the “Main Content, Right Widgets” layout (selectable when
-you update the page in the wiki). Then, keep using the wiki to further
-customize the home page with information specific to your Node.
-
-For help in using the wiki, formatting images etc, there is a list of
-web-based tutorials to help you get started.
-
-For live examples of customized ESGF home pages, see the ESGF Node @
-NOAA/ESRL and ESGF Node @ NASA/JPL.
+and restart the Node.
