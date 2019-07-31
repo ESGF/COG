@@ -34,7 +34,7 @@ Step 1: Turn on the Data Search widget (Figure 1)
 Figure 1: Screenshot of the Data Search widget
 
 Step 2: Customize the Data Search Constraints
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------
 
 -  By default, the search (for any CoG project) will be configured to
    query the local ESGF search services with no constraints (in

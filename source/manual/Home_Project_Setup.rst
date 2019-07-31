@@ -52,8 +52,8 @@ For more detailed instructions: View tutorial with screenshots
 Figure 1: Screenshot of the upper corner of a node showing the “Register
 a New Project” link.
 
-register_projectStep 2: Approve the new project
--------------------------------
+Step 2: Approve the new project
+--------------------------
 
 -  All CoG projects, before being accessible, must be approved by the
    Node Administrator.

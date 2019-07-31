@@ -15,6 +15,9 @@ Welcome to ESGF CoG's documentation!
    manual/Home_Page_Example
    manual/Data_Search_Configuration
    manual/Data_Access_Control_setup
+   manual/Node_Federation
+   manual/Configuring_Globus
+   manual/Data_Transfer_Node_Setup
 
   
    
