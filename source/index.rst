@@ -18,6 +18,9 @@ Welcome to ESGF CoG's documentation!
    manual/Node_Federation
    manual/Configuring_Globus
    manual/Data_Transfer_Node_Setup
+   manual/Header_and_Footer
+   manual/Google_Analytics
+   manual/Notification_Header
 
   
    
