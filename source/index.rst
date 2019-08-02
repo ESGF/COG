@@ -21,6 +21,12 @@ Welcome to ESGF CoG's documentation!
    manual/Header_and_Footer
    manual/Google_Analytics
    manual/Notification_Header
+   manual/ESGF_CoG_User_Accounts
+   manual/Setup_Federation
+   manual/Cron_Jobs
+   manual/Restore_from_Backup
+   manual/Local_Shard_Setup
+   manual/CoG_Installation_or_Upgrade
 
   
    
