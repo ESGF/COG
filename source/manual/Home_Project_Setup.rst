@@ -81,8 +81,12 @@ Step 3: Configure the new project as the Node “home” project
 
 To make the new project the node home project:
 
-edit: /usr/local/cog/cog_config/cog_settings.cfg change: HOME_PROJECT =
-TestProject to: HOME_PROJECT = example: HOME_PROJECT = ESGF-JPL
+.. code:: ipython2
+
+    edit: /usr/local/cog/cog_config/cog_settings.cfg 
+    change: HOME_PROJECT =
+    to:     HOME_PROJECT = <home project short name>
+    example: HOME_PROJECT = ESGF-JPL
 
 Since you are editing this file, you may also want to:
 

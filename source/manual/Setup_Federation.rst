@@ -42,9 +42,12 @@ At startup time, CoG reads this file and takes the following actions:
 The list of peer nodes can also be updated without having to restart the
 local ESGF node. To do so, run the following django management command:
 
-cd $COG_INSTALL_DIR source
-:math:`COG_DIR/venv/bin/activate export LD_LIBRARY_PATH=/opt/esgf/python/lib:`\ LD_LIBRARY_PATH
-python manage.py sync_sites
+.. code:: ipython2
+
+   cd $COG_INSTALL_DIR 
+   source $COG_DIR/venv/bin/activate
+   export LD_LIBRARY_PATH=/opt/esgf/python/lib:`\ LD_LIBRARY_PATH
+   python manage.py sync_sites
 
 Just like when restarting CoG, this command will insert any missing
 nodes in the local database (and update their names if they have
@@ -53,7 +56,10 @@ same command can also be passed the ‘–delete’ option to delete stale
 nodes that are found in the local database, but are missing from the
 esgf_nodes.xml file:
 
-python manage.py sync_sites –delete
+
+.. code:: ipython2
+
+   python manage.py sync_sites –delete
 
 Once the nodes are listed in the local database, they can be enabled by
 logging in as a Node Administrator and clicking on the ‘Configure Peers’
@@ -67,19 +73,26 @@ of projects from the other federated instances in one of three ways:
 
 -  By visiting the page “Configure Peers” and clicking on the lower link
    “Synchronize with Peer CoGs Now” (or directly invoking the URL
-    ``http://<your cog domain name>/share/sync/projects/``
+   "http://<your cog domain name>/share/sync/projects/")
 -  By invoking the following django management command:
 
-cd $COG_INSTALL_DIR source
-:math:`COG_DIR/venv/bin/activate export LD_LIBRARY_PATH=/opt/esgf/python/lib:`\ LD_LIBRARY_PATH
-python manage.py sync_projects
+.. code:: ipython2
+
+   cd $COG_INSTALL_DIR 
+   source $COG_DIR/venv/bin/activate
+   export LD_LIBRARY_PATH=/opt/esgf/python/lib:$LD_LIBRARY_PATH
+   python manage.py sync_projects
 
 -  By setting up a cron job that executes the same command above. For
    example:
 
-crontab -l 0 \* \* \* \* source ~/.bashrc; python
-/usr/local/cog/cog_install/manage.py sync_projects >> /tmp/crontab.log
-2>&1
+.. code:: ipython2
+
+
+   crontab -l
+   0 * * * * source ~/.bashrc; 
+   python/usr/local/cog/cog_install/manage.py sync_projects 
+   >> /tmp/crontab.log 2>&1
 
 will parse the user environment, and run the command at minute 0 of
 every hour, appending the output to file.

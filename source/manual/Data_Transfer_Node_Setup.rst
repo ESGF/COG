@@ -21,21 +21,28 @@ EPEL software repository configured.
 Install Globus Connect Server IO
 --------------------------------
 
--  rpm –import
-   http://www.globus.org/ftppub/globus-connect-server/RPM-GPG-KEY-Globus
--  yum -y install
-   http://toolkit.globus.org/ftppub/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm
--  yum -y install globus-connect-server-io
+  # rpm --import http://www.globus.org/ftppub/globus-connect-server/RPM-GPG-KEY-Globus
 
-More information about installing Globus Connect Server can be found at
-https://www.globus.org/globus-connect-server.
+  # yum -y install http://toolkit.globus.org/ftppub/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm
+
+  # yum -y install globus-connect-server-io
+
+
+More information about installing Globus Connect Server can be found at https://www.globus.org/globus-connect-server.
 
 Add the ESGF software repository
 --------------------------------
 
--  cat > /etc/yum.repos.d/esgf.repo [esgf] name=ESGF
-   baseurl=http://distrib-coffee.ipsl.jussieu.fr/esgf/RPM/centos/6/x86_64
-   failovermethod=priority enabled=1 priority=90 gpgcheck=0
+.. code:: ipython2  
+
+  # cat > /etc/yum.repos.d/esgf.repo
+  [esgf]
+  name=ESGF
+  baseurl=http://distrib-coffee.ipsl.jussieu.fr/esgf/RPM/centos/6/x86_64
+  failovermethod=priority
+  enabled=1
+  priority=90
+  gpgcheck=0
 
 If the DTN node runs RHEL Linux, replace ‘centos’ with ‘redhat’ in the
 path above. You can also copy this file from the data node.
@@ -43,23 +50,40 @@ path above. You can also copy this file from the data node.
 Install ESGF authorization packages
 -----------------------------------
 
--  yum -y install globus-authz-esgsaml-callout globus-gaa globus-adq
-   customgsiauthzinterface
+.. code:: ipython2
+
+   yum -y install globus-authz-esgsaml-callout globus-gaa globus-adq customgsiauthzinterface
 
 Configure Globus Connect Server IO
 ----------------------------------
 
-Copy /etc/globus-connect-server-esgf.conf from the data node [Globus]
-User = %(GLOBUS_USER)s Password = %(GLOBUS_PASSWORD)s [Endpoint] Name =
-Public = True [Security] FetchCredentialFromRelay = True
-#CertificateFile = /etc/grid-security/hostcert.pem #KeyFile =
-/etc/grid-security/hostkey.pem TrustedCertificateDirectory =
-/etc/grid-security/certificates/ IdentityMethod = MyProxy
-AuthorizationMethod = Gridmap [GridFTP] Server = %(HOSTNAME)s
-IncomingPortRange = 50000,51000 OutgoingPortRange = 50000,51000
-RestrictPaths = R/,N/etc,N/tmp,N/dev Sharing = False
-SharingRestrictPaths = R/ SharingStateDir =
-/etc/grid-security/sharing/$USER [MyProxy] Server =
+
+.. code:: ipython2
+
+   Copy /etc/globus-connect-server-esgf.conf from the data node
+   [Globus]
+   User = %(GLOBUS_USER)s 
+   Password = %(GLOBUS_PASSWORD)s 
+   [Endpoint] 
+   Name =  <short_hostname_of_the_data_node>
+   Public = True 
+   [Security] 
+   FetchCredentialFromRelay = True
+   #CertificateFile = /etc/grid-security/hostcert.pem 
+   #KeyFile = /etc/grid-security/hostkey.pem 
+   TrustedCertificateDirectory = /etc/grid-security/certificates/
+   IdentityMethod = MyProxy
+   AuthorizationMethod = Gridmap 
+   [GridFTP] 
+   Server = %(HOSTNAME)s
+   IncomingPortRange = 50000,51000
+   OutgoingPortRange = 50000,51000
+   RestrictPaths = R/,N/etc,N/tmp,N/dev
+   Sharing = False
+   SharingRestrictPaths = R/ 
+   SharingStateDir = /etc/grid-security/sharing/$USER 
+   [MyProxy] 
+   Server = <FQDN of the IdP node>
 
 To add the GridFTP server to the existing Globus endpoint associated
 with the data node, you must use the same Globus username as you used
@@ -87,25 +111,38 @@ directories are accessible on the DTN node under /esg/gridftp_root the
 same as on the data node, you can copy /etc/gridftp.d/globus-esgf file
 from the data node:
 
-#cat > /etc/gridftp.d/globus-esgf chroot_path /esg/gridftp_root
-usage_stats_id ESGF2811 usage_stats_target usage-stats.globus.org:4810
-acl customgsiauthzinterface
+.. code:: ipython2 
 
-$GLOBUS_USAGE_DEBUG “MESSAGES,/esg/log/esg-server-usage-gridftp.log”
-$GSI_AUTHZ_CONF “/etc/grid-security/authz_callouts_esgsaml.conf”
-$GLOBUS_GSI_AUTHZ_DEBUG_LEVEL “10” $GLOBUS_GSI_AUTHZ_DEBUG_FILE
-“/var/log/gridftp-debug.log”
+  #cat > /etc/gridftp.d/globus-esgf
+   chroot_path /esg/gridftp_root
+   usage_stats_id ESGF2811 
+   usage_stats_target usage-stats.globus.org:4810
+   acl customgsiauthzinterface
+   $GLOBUS_USAGE_DEBUG “MESSAGES,/esg/log/esg-server-usage-gridftp.log”
+   $GSI_AUTHZ_CONF “/etc/grid-security/authz_callouts_esgsaml.conf”
+   $GLOBUS_GSI_AUTHZ_DEBUG_LEVEL “10” 
+   $GLOBUS_GSI_AUTHZ_DEBUG_FILE “/var/log/gridftp-debug.log”
 
-Copy /etc/grid-security/esgsaml_auth.conf from the data node: #cat >
-/etc/grid-security/esgsaml_auth.conf
-AUTHSERVICE=https:///esg-orp/saml/soap/secure/authorizationService.htm
+Copy /etc/grid-security/esgsaml_auth.conf from the data node:
+
+.. code:: ipython2
+
+   # cat >/etc/grid-security/esgsaml_auth.conf
+   AUTHSERVICE=https:///esg-orp/saml/soap/secure/authorizationService.htm
 
 Because GridFTP server will run in a chroot jail, you have to setup a
 chroot environment. The following command will copy CA certificates,
 passwd, group, nsswitch.conf and other files required by GridFTP server:
-globus-gridftp-server-setup-chroot -r /esg/gridftp_root
 
-And restart GridFTP server: service globus-gridftp-server restart
+.. code:: ipython2
+
+   # globus-gridftp-server-setup-chroot -r /esg/gridftp_root
+
+And restart GridFTP server: 
+
+.. code:: ipython2
+
+   # service globus-gridftp-server restart
 
 Test
 ----

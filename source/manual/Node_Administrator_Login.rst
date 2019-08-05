@@ -10,8 +10,11 @@ login:
 Option 1: Username/Password login
 ---------------------------------
 
-Open URL: https:///login2/ username: rootAdmin password: chosen root
-password set during the ESGF-CoG Node installation
+.. code:: ipython2
+
+    Open URL: https:///login2/ 
+    username: rootAdmin 
+    password: chosen root password set during the ESGF-CoG Node installation
 
 -  rootAdmin is the user name for all ESGF nodes (established by the
    ESGF Node installer).
@@ -40,7 +43,10 @@ Option 2: OpenID login
 
 Figure 1: Screenshot of the Login link in the upper right corner of CoG.
 
-OpenID: https:///esgf-idp/openid/rootAdmin
+
+.. code:: ipython2
+
+    OpenID: https:///esgf-idp/openid/rootAdmin
 
 -  The “rootAdmin” user and OpenID is generated when the ESGF Node is
    first installed.

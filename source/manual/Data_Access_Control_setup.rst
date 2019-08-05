@@ -11,16 +11,20 @@ Step 1: Configure the ESGF Postgres database
 
 Use the command line client to interact with the Postgres database:
 
-psql -U dbsuper -d esgcet
+.. code:: ipython2
+
+    psql -U dbsuper -d esgcet
 
 (type in your Postgres super-user password).
 
 Create a new group that will control all operations on the dataset (all
 SQL commands below must be typed in only one line):
 
-esgcet=# insert into esgf_security.group (id, name, description,
-visible, automatic_approval) values (2, ‘NASA OBS’, ‘NASA observations’,
-true, true);
+.. code:: ipython2
+
+    esgcet=# insert into esgf_security.group (id, name, description,
+    visible, automatic_approval) values (2, ‘NASA OBS’, ‘NASA observations’,
+    true, true);
 
 Note that:
 
@@ -34,16 +38,19 @@ Then, assign read/write privileges to one or more users who will be
 publishing the data. In this case, we look up the “rootAdmin” user and
 assign him/her priileges on the group just created:
 
-esgcet=# select id from esgf_security.user where openid like
-‘%rootAdmin%’;
 
-esgcet=# insert into esgf_security.permission (user_id, group_id,
-role_id, approved) values (1, 2, 4, true); # ‘publisher’ role, aka
-‘write’ privileges
+.. code:: ipython2
 
-esgcet=# insert into esgf_security.permission (user_id, group_id,
-role_id, approved) values (1, 2, 6, true); # ‘user’ role, aka ‘read’
-privileges
+    esgcet=# select id from esgf_security.user where openid like
+    ‘%rootAdmin%’;
+
+    esgcet=# insert into esgf_security.permission (user_id, group_id,
+    role_id, approved) values (1, 2, 4, true); # ‘publisher’ role, aka
+    ‘write’ privileges
+
+    esgcet=# insert into esgf_security.permission (user_id, group_id,
+    role_id, approved) values (1, 2, 6, true); # ‘user’ role, aka ‘read’
+    privileges
 
 Step 2: Edit the ESGF XML configuration files
 ---------------------------------------------
@@ -52,7 +59,10 @@ As root, edit the file /esg/config/esgf_policy_local.xml to specify one
 or more policies for reading/writing the files of your dataset. For
 example:
 
-vi /esg/config/esgf_policies_local.xml
+.. code:: ipython2
+
+
+    vi /esg/config/esgf_policies_local.xml
 
 .. raw:: html
 
@@ -68,7 +78,10 @@ Also, you must edit the file /esg/config/esgf_ats_static.xml to specify
 the URLs of the Attribute and Registration services that manage
 membership in the access control group. For example:
 
-vi /esg/config/esgf_ats_static.xml
+
+.. code:: ipython2
+
+    vi /esg/config/esgf_ats_static.xml
 
 .. raw:: html
 
@@ -86,7 +99,10 @@ the ESGF access control groups. Whenever CoG is connected to an ESFG
 appropriate registration page for each of the ESGF access control groups
 read from the local database. These pages all have URLs of the form:
 
-https:///ac/subscribe//
+
+.. code:: ipython2
+
+    https:///ac/subscribe//
 
 (for example: https://esgf-dev.jpl.nasa.gov/ac/subscribe/NASA%20OBS/),
 so as an node administrator you can embed this URL anywhere on your node
@@ -100,9 +116,12 @@ the users to read before they request membership. To do so, place a file
 called .html (in HTML format) or .txt (in plain text format) under your
 local templates directory, specifically:
 
-/usr/local/cog/cog_config/mytemplates/cog/access_control/licenses/.html
-or:
-/usr/local/cog/cog_config/mytemplates/cog/access_control/licenses/.txt
+
+.. code:: ipython2
+
+    /usr/local/cog/cog_config/mytemplates/cog/access_control/licenses/.html
+    or:
+    /usr/local/cog/cog_config/mytemplates/cog/access_control/licenses/.txt
 
 The figure below shows an example registration page with embedded HTML
 license.
@@ -126,17 +145,18 @@ the special attribute_type=“ANY”. Note that your will still want to have
 a restricted access control group to enable publishing of the data. For
 example:
 
-vi /esg/config/esgf_policies_local.xml
 
-.. raw:: html
+.. code:: ipython2
 
-   <!-- URLs that contain COUND can be downloaed by guest users 
+    vi /esg/config/esgf_policies_local.xml
+
+    <!-- URLs that contain COUND can be downloaed by guest users 
         (no authentication or group membershp required) -->
+    <policy resource=".*COUND.*" attribute_type="ANY" attribute_value="" action="Read"/>
 
-.. raw:: html
-
-   <!-- datasets with ID that contain COUND can be published by users
+    <!-- datasets with ID that contain COUND can be published by users
         with NASA-OBS "publisher" permission -->
+    <policy resource=".*COUND.*" attribute_type="NASA OBS" attribute_value="publisher" action="Write"/>
 
 Special Case: Authentication Only Data
 --------------------------------------
@@ -147,12 +167,17 @@ openid for metrics reporting, but they don’t need users to enroll in any
 group. In this case, they can use a policy statement with the special
 attribute_type=“AUTH_ONLY”. For example:
 
-vi /esg/config/esgf_policies_local.xml
 
-.. raw:: html
+.. code:: ipython2
 
-   <!-- URLs that contain obs4MIPs can be downloaed by authenticated users (no group membershp required) -->
+    vi /esg/config/esgf_policies_local.xml
+    <!-- URLs that contain COUND can be downloaed by guest users 
+     (no authentication or group membershp required) -->
+    <policy resource=".*COUND.*" attribute_type="ANY" attribute_value="" action="Read"/>
+   
+    <!-- datasets with ID that contain COUND can be published by users
+         with NASA-OBS "publisher" permission -->
+    <policy resource=".*COUND.*" attribute_type="NASA OBS" attribute_value="publisher" action="Write"/>
 
-.. raw:: html
 
-   <!-- datasets with ID that contain obs4MIPs can be published by users with NASA-OBS "publisher" permission -->
+

@@ -42,10 +42,14 @@ Node: Data node.
 In order to be downloadable through Globus, datasets must be published
 into the ESGF system with Globus URLs. This can be achieved by setting:
 
-thredds_file_services = HTTPServer \| /thredds/fileServer/ \| TDSat \|
-fileservice OpenDAP \| /thredds/dodsC/ \| OpenDAPat \| fileservice
-GridFTP \| gsiftp://:2811/ \| GRIDFTP \| fileservice Globus \| globus:/
-\| Globus \| fileservice
+
+.. code:: ipython2
+
+    thredds_file_services =
+            HTTPServer | /thredds/fileServer/ | TDSat \|fileservice
+            OpenDAP | /thredds/dodsC/ | OpenDAPat | fileservice
+            GridFTP | gsiftp://:2811/ | GRIDFTP | fileservice
+            Globus | globus:/ | Globus | fileservice
 
 in the esg.ini file, for example:
 "globus:b7a8fa70-71d1-11e5-ba4c-22000b92c6ec/. A UUID of the Globus
@@ -61,7 +65,10 @@ https://github.com/ESGF/esgf-utils/blob/master/globus/add_globus_urls.py,
 to add the Globus URLs to THREDDS catalogs and re-harvest them without
 republishing all of the datasets again.
 
-. /etc/esg.env python add_globus_urls.py
+.. code:: ipython2
+
+    . /etc/esg.env 
+    python add_globus_urls.py
 
 Step 4: Register the URL with Globus
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,15 +115,20 @@ Index+IdP node, where CoG is running (the values are just example,
 please replace with your Globus client id and secret received from
 Globus support):
 
-[GLOBUS] OAUTH_CLIENT_ID = 12345678-9012-3456-7890-123456789012
-OAUTH_CLIENT_SECRET = 2345yujhbe3456yuhgfd45234yujhfd3Gev28gFWeBWE42=
-ENDPOINTS = /esg/config/esgf_endpoints.xml
+
+.. code:: ipython2
+
+   [GLOBUS] OAUTH_CLIENT_ID = 12345678-9012-3456-7890-123456789012
+   OAUTH_CLIENT_SECRET = 2345yujhbe3456yuhgfd45234yujhfd3Gev28gFWeBWE42=
+   ENDPOINTS = /esg/config/esgf_endpoints.xml
 
 Also an empty /esg/config/esgf_endpoints.xml file must be created:
 
-.. raw:: html
+.. code:: ipython2
 
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+   <endpoints xmlns="http://www.esgf.org/whitelist">
+   </endpoints>
 
 The file is a part of a legacy implementation of mapping GridFTP URLs to
 Globus URLs. The legacy implementation will be removed in the next
@@ -151,13 +163,15 @@ specially configured to allow access to shared data.
    line at the top of the file to map the “rootAdmin” DN to the local
    “sharer” Unix user
 
-cat /etc/grid-security/grid-mapfile
-“/O=ESGF/OU=ESGF.ORG/CN=https:///esgf-idp/openid/rootAdmin” sharer
-"^.*$" globus
+.. code:: ipython2
 
-for example:
-“/O=ESGF/OU=ESGF.ORG/CN=https://esgf-node.jpl.nasa.gov/esgf-idp/openid/rootAdmin”
-sharer "^.*$" globus
+    cat /etc/grid-security/grid-mapfile
+    “/O=ESGF/OU=ESGF.ORG/CN=https:///esgf-idp/openid/rootAdmin” sharer
+    "^.*$" globus
+
+    for example:
+    “/O=ESGF/OU=ESGF.ORG/CN=https://esgf-node.jpl.nasa.gov/esgf-idp/openid/rootAdmin” sharer
+    "^.*$" globus
 
 Note that the OpenId inside the DN refers to the rootAdmin account on
 the Index+IdP node: X.509 credentials for “rootAdmin” must be obtained
@@ -167,11 +181,13 @@ on the Data node.
 -  Create the following file to enable sharing on the GridFTP server:
    /etc/gridftp.d/globus-connect-server-sharing-esgf:
 
-cat /etc/gridftp.d/globus-connect-server-sharing-esgf sharing_dn
-“/C=US/O=Globus Consortium/OU=Globus Online/OU=Transfer
-User/CN=\ **transfer**” sharing_rp R/esg_dataroot/ sharing_state_dir
-/etc/grid-security/sharing/$USER sharing_users_allow sharer
-sharing_users_deny globus
+.. code:: ipython2
+
+    cat /etc/gridftp.d/globus-connect-server-sharing-esgf sharing_dn
+    “/C=US/O=Globus Consortium/OU=Globus Online/OU=Transfer
+    User/CN=\ **transfer**” sharing_rp R/esg_dataroot/ 
+    sharing_state_dir/etc/grid-security/sharing/$USER sharing_users_allow sharer
+    sharing_users_deny globus
 
 Step 3: Activate the default Globus Endpoint on the node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -251,12 +267,17 @@ In order to be downloadable through Globus, datasets must be published
 into the ESGF system with Globus URLs pointing to the shared endpoint.
 This can be achieved by setting:
 
-thredds_file_services = HTTPServer \| /thredds/fileServer/ \| TDSat \|
-fileservice OpenDAP \| /thredds/dodsC/ \| OpenDAPat \| fileservice
-GridFTP \| gsiftp://:2811/ \| GRIDFTP \| fileservice # Globus endpoint
-for restricted datasets #Globus \| globus:/ \| Globus \| fileservice #
-Globus shared endpoint for public datasets Globus \| globus: \| Globus
-\| fileservice
+.. code:: ipython2
+
+
+    thredds_file_services = 
+       HTTPServer | /thredds/fileServer/ | TDSat<node> | fileservice
+       OpenDAP | /thredds/dodsC/ | OpenDAPat<node> | fileservice
+       # GridFTP | gsiftp://<hostname>:2811/ | GRIDFTP | fileservice 
+       #Globus endpoint for restricted datasets 
+       # Globus | globus:<UUID>/ | Globus | fileservice 
+       # Globus shared endpoint for public datasets 
+       Globus | globus:<UUID_of_the_shared_endpoint> | Globus | fileservice
 
 in the esg.ini file, for example:
 "globus:2854feb6-bb21-11e5-9a07-22000b96db58/. A UUID of the shared

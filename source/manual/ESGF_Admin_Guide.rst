@@ -15,8 +15,10 @@ port SSL port 443 (redirection from port 80 will be configured soon).
 After the ESGF installer completes succesfully, check that you can
 access the node by typing the following URL in your favorite browser
 
-Open URL: https:/// Replace: with your Node’s fully qualified domain
-name (note the “https” protocol).
+.. code:: ipython2
+
+    Open URL: https:///
+    Replace: with your Node’s fully qualified domain name (note the “https” protocol).
 
 This should redirect to https:////projects/testproject/
 
@@ -37,15 +39,6 @@ procedure (as root, or prepend commands with sudo):
     Execute the script: # ./esg-cog
     Stop Postgres: # /etc/init.d/postgresql stop
     Restart the ESGF node: # /usr/local/bin/esg-node start
-
-
-::
-
-
-      File "<ipython-input-2-a0fcba534f74>", line 1
-        Stop the ESGF node: # /usr/local/bin/esg-node stop
-               ^
-    SyntaxError: invalid syntax
 
 
 
@@ -103,15 +96,6 @@ simply by editing and executing the esg-cog script (as root):
     edit esg-cog: set VERSION=...whatever is the CoG version you want to install...
     execute esg-cog: ./esg-cog
     restart the node: ./esg-node restart
-
-
-::
-
-
-      File "<ipython-input-4-25478b30a7e9>", line 2
-        edit esg-cog: set VERSION=...whatever is the CoG version you want to install...
-               ^
-    SyntaxError: invalid syntax
 
 
 
