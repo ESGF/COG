@@ -60,8 +60,7 @@ Step 3: Add Globus URLs to already published datasets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you already have published some datasets without Globus URLs, you can
-run the script,
-https://github.com/ESGF/esgf-utils/blob/master/globus/add_globus_urls.py,
+run the script,`GitHub `GitHub <https//github.com/ESGF/esgf-utils/blob/master/globus/add_globus_urls.py>`_
 to add the Globus URLs to THREDDS catalogs and re-harvest them without
 republishing all of the datasets again.
 
@@ -83,7 +82,7 @@ Globus support):
 The node where CoG is running must be registered as a client that is
 authorized to submit data transfer requests to the Globus service on
 behalf of the user. To register CoG app, go to
-https://developers.globus.org, click “Register your app with Globus”,
+`CoG app <https://developers.globus.org/>`_, click “Register your app with Globus”,
 create or add “ESGF” project. Click the “Manager Project” drop down and
 select “Add new app” and fill out the registration form with the
 following information:
@@ -200,7 +199,7 @@ ESGF account on the system, for example using the “rootAdmin” account
 that is created at installation time (the account is only used to
 retrieve valid credentials from the MyProxy server).
 
--  Visit the Globus website, login with the Globus username and password
+-  Visit the `Globus <http://www.globus.org/>`_ website, login with the Globus username and password
    used during installation
 -  Click on Quick Links > Transfer Files > Endpoints
 -  Select the endpoint named after the node host name, i.e. as
@@ -281,5 +280,4 @@ This can be achieved by setting:
 
 in the esg.ini file, for example:
 "globus:2854feb6-bb21-11e5-9a07-22000b96db58/. A UUID of the shared
-Globus endpoint can be obtained from the Globus website,
-https://www.globus.org/app/endpoints?scope=my-endpoints.
+Globus endpoint can be obtained from the `Globus website <https://www.globus.org/app/endpoints?scope=my-endpoints>`_

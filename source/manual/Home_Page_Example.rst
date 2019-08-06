@@ -38,8 +38,8 @@ data. Projects that do require membership will say so explicitly.
 Host a Project
 ~~~~~~~~~~~~~~
 
-This ESGF-CoG Node comes bundled with the Earth System CoG Collboration
-Environment http://www.earthsystemcog.org/ , which can be used to host projects in the Earth Sciences.
+This ESGF-CoG Node comes bundled with the `Earth System CoG Collboration
+Environment <http://www.earthsystemcog.org/>`_  , which can be used to host projects in the Earth Sciences.
 
 CoG projects are connected into networks, contain tools for
 collaboration, and metadata to describe project organization.

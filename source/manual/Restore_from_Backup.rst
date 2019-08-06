@@ -7,7 +7,10 @@ Restoring CoG from backup
 -  Stop CoG, then…
 -  if using postgres:
 
-psql -U postgres -p 5432 cogdb < cogdb_2014-03-12.sql
+
+.. code:: ipython2
+
+    psql -U postgres -p 5432 cogdb < cogdb_2014-03-12.sql
 
 -  if using sqllite:
 

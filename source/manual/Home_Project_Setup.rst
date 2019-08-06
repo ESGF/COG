@@ -95,13 +95,12 @@ Since you are editing this file, you may also want to:
    installed, but you may want to replace it with your own long sequence
    of random characters (any character is allowed).
 -  Setup your TIME_ZONE (any valid time zone name supported by the
-   Python datetime package - see wikipedia page for full listing).
+   Python datetime package - see `wikipedia <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>`_ page for full listing).
 
 Step 4: Save the file and restart the ESGF Node.
 ------------------------------------------------
 
--  Check that the node top-level URL: https:/// redirects to:
-   https:///projects//.
+-  Check that the node top-level URL: https://<hostname>/ redirects to: https://<hostname>/projects/<home project short name>/.
 
 Step 5: Edit the node “home” project “home” page
 ------------------------------------------------
@@ -110,8 +109,7 @@ At this point, you may want to start populating the content of the home
 page for your node home project.
 
 For convenience, we have created an example of a generic ESGF Node home
-page that you are welcome to use as a starting point - see this ESGF
-Node Home Page Example. If you like the example, you can use your
+page that you are welcome to use as a starting point - see this `ESGF Node Home Page Example <COG/souce.html#Home_Page_Example>`_  If you like the example, you can use your
 browser to view the HTML source, and cut-and-paste the HTML code
 (between the “START ESGF HOME PAGE EXAMPLE” and “END ESGF HOME PAGE
 EXAMPLE” lines) into the wiki content of your Node home page. Note that
@@ -124,5 +122,5 @@ customize the home page with information specific to your Node.
 For help in using the wiki, formatting images etc, there is a list of
 web-based tutorials to help you get started.
 
-For live examples of customized ESGF home pages, see the ESGF Node @
-NOAA/ESRL and ESGF Node @ NASA/JPL.
+For live examples of customized ESGF home pages, see the `ESGF Node @ NOAA/ESRL <https://esgf.esrl.noaa.gov/projects/esgf-esrl>`_  and
+`ESGF Node @ NASA/JPL <https://esg-datanode.jpl.nasa.gov/projects/esgf-jpl/>`_

@@ -17,8 +17,8 @@ access the node by typing the following URL in your favorite browser
 
 .. code:: ipython2
 
-    Open URL: https:///
-    Replace: with your Node’s fully qualified domain name (note the “https” protocol).
+    Open URL: https//<hostname>/
+    Replace: <hostname> with your Node’s fully qualified domain name (note the “https” protocol).
 
 This should redirect to https:////projects/testproject/
 
@@ -60,18 +60,17 @@ Step 2: Configure CoG
    installation is final, about to go into production, and you will only
    have to upgrade the Node, not re-install it.
 
-.. code:: ipython2
 
-    1. Login as ESGF/CoG Administrator
-    2. Setup the Node Home Project
-    3. Configure the Home Project Search
-    4. Data Access Control Setup
+    1. `Login as ESGF/CoG Administrator <COG/souce.html#ESGF_Admin_Guide>`_
+    2. `Setup the Node Home Project <COG/source.html#Home_Project_Setup>`_
+    3. `Configure the Home Project Search <COG/source.html#Data_Search_Configuration>`_
+    4. `Data Access Control Setup <COG/source.html#Data_Access_Control_Setup>`_
     5. Customize the Node Header and Footer
     6. Customize Google Analytics
     7. Setup the ESGF Node Federation
     8. Configure Globus Downloads
-    9, Setup Cron Jobs
-    10. Local Shard Setup and Publishing
+    9. `Setup Cron Jobs <COG/source.html#Cron_Jobs>`_
+    10. `Local Shard Setup and Publishing <COG/source.html#Local_Shard_Setup>`_
 
 Additionally, the following pages contain additional content related to
 understanding and operating an ESGF-CoG node:

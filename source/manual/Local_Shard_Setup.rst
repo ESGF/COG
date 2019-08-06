@@ -30,7 +30,10 @@ Step 1) Setup a “local shard”
 The following command will create a new Solr instance configuration
 suitable for publishing and searching local data:
 
-esg-node –add-replica-shard localhost:8982
+
+.. code:: ipython2
+
+    esg-node –add-replica-shard localhost:8982
 
 (note that for various reasons it is best to choose “8982” as the local
 shard port).
@@ -73,18 +76,25 @@ file:
 
 -  Change the URL of the target publishing service:
 
-from:
-https://your.host.name/esg-search/remote/secure/client-cert/hessian/publishingService
-to:
-https://your.host.name/esg-search/remote/secure/client-cert/hessian/publishingServiceLocal
+.. code:: ipython2
+
+    from: https://your.host.name/esg-search/remote/secure/client-cert/hessian/publishingService
+    to: https://your.host.name/esg-search/remote/secure/client-cert/hessian/publishingServiceLocal
 
 Add the “shard” metadata field as part of the specific project
 configuration:
 
-categories = project \| enum \| true \| true \| 0 ………………………………………… shard
-\| string \| true \| true \| 14
+.. code:: ipython2
 
-category_default = project \| ….. ………………. shard \| localhost:8982
+    categories = 
+          project | enum | true | true | 0
+          ..............................................
+          shard | string | true | true | 14
+
+    category_default =
+          project |
+          ....................... 
+          shard | localhost:8982
 
 Step 3) Configure the CoG Search User Interface
 -----------------------------------------------
@@ -100,17 +110,20 @@ to find data indexed on the local shard in two ways:
    picked up by the local ESGF search service by default. Specifically,
    configure the CoG project search as follows:
 
-Search Service URL: http://your.host.name/esg-search/search/
-Constraints: do NOT add distrib=false and do NOT specifiy any shard
-constraint
+.. code:: ipython2
+
+    Search Service URL: http://your.host.name/esg-search/search/
+    Constraints: do NOT add distrib=false and do NOT specifiy any shard constraint
 
 By targeting the local ESGF search service AND adding a specific shard
 constraint that includes that shard. In this case, the local ESGF
 service will query only those shards that are specified in the
 constraint. For example:
 
-Search Service URL: http://your.host.name/esg-search/search/
-Constraints: shards=localhost:8983/solr,localhost:8982/solr
+.. code:: ipython2
+
+    Search Service URL: http://your.host.name/esg-search/search/
+    Constraints: shards=localhost:8983/solr,localhost:8982/solr
 
 The first configuration will cause the CoG interface to return results
 from ALL shards configured in the local file esgf_shards_static.xml
