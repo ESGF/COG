@@ -21,12 +21,11 @@ EPEL software repository configured.
 Install Globus Connect Server IO
 --------------------------------
 
-  # rpm --import http://www.globus.org/ftppub/globus-connect-server/RPM-GPG-KEY-Globus
-
-  # yum -y install http://toolkit.globus.org/ftppub/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm
-
-  # yum -y install globus-connect-server-io
-
+.. code:: ipython2
+ 
+    # rpm --import http://www.globus.org/ftppub/globus-connect-server/RPM-GPG-KEY-Globus
+    # yum -y install http://toolkit.globus.org/ftppub/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm
+    # yum -y install globus-connect-server-io
 
 More information about installing Globus Connect Server can be found at https://www.globus.org/globus-connect-server.
 

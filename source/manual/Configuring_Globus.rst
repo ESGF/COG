@@ -1,6 +1,9 @@
 
+Configuring Globus
+==================
+
 Configuring ESGF/CoG with Globus Downloads
-==========================================
+------------------------------------------
 
 This page is a guide for ESGF administrators about how to configure
 their local node to enable downloads of both restricted and public data
@@ -24,7 +27,7 @@ Connect Server, but to do so it will require a valid Globus account to
 associate with the node. This account will be used by the node to submit
 a data transfer request on behalf of the user. So, prior to run the
 installer, you must obtain a Globus username and password (by visiting
-the Globus website) that you will use at installation time. For example:
+the `Globus <http://www.globus.org>`_/ website) that you will use at installation time. For example:
 
 -  Globus username = jplnasagov
 -  Globus password = secret
@@ -60,7 +63,7 @@ Step 3: Add Globus URLs to already published datasets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you already have published some datasets without Globus URLs, you can
-run the script,`GitHub `GitHub <https//github.com/ESGF/esgf-utils/blob/master/globus/add_globus_urls.py>`_
+run the script,`GitHub `GitHub <https://github.com/ESGF/esgf-utils/blob/master/globus/add_globus_urls.py>`_
 to add the Globus URLs to THREDDS catalogs and re-harvest them without
 republishing all of the datasets again.
 

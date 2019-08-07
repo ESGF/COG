@@ -61,7 +61,7 @@ Step 2: Configure CoG
    have to upgrade the Node, not re-install it.
 
 
-    1. `Login as ESGF/CoG Administrator <COG/souce.html#ESGF_Admin_Guide>`_
+    1. `Login as ESGF/CoG Administrator <ESGF_Admin_Guide.html>`_
     2. `Setup the Node Home Project <COG/source.html#Home_Project_Setup>`_
     3. `Configure the Home Project Search <COG/source.html#Data_Search_Configuration>`_
     4. `Data Access Control Setup <COG/source.html#Data_Access_Control_Setup>`_
