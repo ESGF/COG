@@ -27,6 +27,15 @@ Welcome to ESGF CoG's documentation!
    manual/Restore_from_Backup
    manual/Local_Shard_Setup
    manual/CoG_Installation_or_Upgrade
+   manual/Create_an_account
+   manual/Authorization_for_ESGF_Data_Access
+   manual/Logging_in_with_OpenID
+   manual/Forgot_OpenID
+   manual/Forgot_Password
+   manual/Update_Password
+   manual/Get_Safari_to_accept_the_ESGF_OpenID_certificate
+
+
 
   
    
