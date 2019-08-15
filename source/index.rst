@@ -34,6 +34,10 @@ Welcome to ESGF CoG's documentation!
    manual/Forgot_Password
    manual/Update_Password
    manual/Get_Safari_to_accept_the_ESGF_OpenID_certificate
+   manual/Get_Chrome_to_accept_the_ESGF_OpenID_certificate
+   manual/Get_Internet_Explorer_to_accept_the_ESGF_OpenID_certificate
+   manual/Get_Firefox_to_accept_the_ESGF_OpenID_certificate
+   
 
 
 

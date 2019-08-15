@@ -22,9 +22,8 @@ SQL commands below must be typed in only one line):
 
 .. code:: ipython2
 
-    esgcet=# insert into esgf_security.group (id, name, description,
-    visible, automatic_approval) values (2, ‘NASA OBS’, ‘NASA observations’,
-    true, true);
+    esgcet=# insert into esgf_security.group (id, name, description, visible, automatic_approval)
+             values (2, ‘NASA OBS’, ‘NASA observations’, true, true);
 
 Note that:
 
@@ -41,16 +40,13 @@ assign him/her priileges on the group just created:
 
 .. code:: ipython2
 
-    esgcet=# select id from esgf_security.user where openid like
-    ‘%rootAdmin%’;
+    esgcet=# select id from esgf_security.user where openid like ‘%rootAdmin%’;
 
-    esgcet=# insert into esgf_security.permission (user_id, group_id,
-    role_id, approved) values (1, 2, 4, true); # ‘publisher’ role, aka
-    ‘write’ privileges
+    esgcet=# insert into esgf_security.permission (user_id, group_id, role_id, approved)
+             values (1, 2, 4, true); # ‘publisher’ role, aka ‘write’ privileges
 
-    esgcet=# insert into esgf_security.permission (user_id, group_id,
-    role_id, approved) values (1, 2, 6, true); # ‘user’ role, aka ‘read’
-    privileges
+    esgcet=# insert into esgf_security.permission (user_id, group_id, role_id, approved)
+             values (1, 2, 6, true); # ‘user’ role, aka ‘read’ privileges
 
 Step 2: Edit the ESGF XML configuration files
 ---------------------------------------------
@@ -64,15 +60,16 @@ example:
 
     vi /esg/config/esgf_policies_local.xml
 
-.. raw:: html
-
-   <!-- URLs that contain NASA-JPL can be downloaed by users 
+    <!-- URLs that contain NASA-JPL can be downloaed by users 
         with NASA-OBS "user" permission -->
 
-.. raw:: html
+    <policy resource=".*NASA-JPL.*" attribute_type="NASA OBS" 
+        attribute_value="user" action="Read"/>
 
-   <!-- datasets with ID that contain NASA-JPL can be published by users
-        with NASA-OBS "publisher" permission -->
+    <!-- datasets with ID that contain NASA-JPL can be published by users
+         with NASA-OBS "publisher" permission -->
+    <policy resource=".*NASA-JPL.*" attribute_type="NASA OBS" 
+        attribute_value="publisher" action="Write"/>
 
 Also, you must edit the file /esg/config/esgf_ats_static.xml to specify
 the URLs of the Attribute and Registration services that manage
@@ -83,9 +80,12 @@ membership in the access control group. For example:
 
     vi /esg/config/esgf_ats_static.xml
 
-.. raw:: html
+    <!-- NASA Obs4MIPs --><!-- NASA Obs4MIPs -->
+    <attribute type="NASA OBS"               
+    attributeService="https://esgf-dev.jpl.nasa.gov/esgf-idp/saml/soap/secure/attributeService.htm"
+    description="NASA Observational Data"
+    registrationService="https://esgf-dev.jpl.nasa.gov/esgf-idp/secure/registrationService.htm"/>
 
-   <!-- NASA Obs4MIPs -->
 
 When done, you may restart the node, but there is really no need to as
 the above files should be automatically reloaded.
@@ -102,7 +102,7 @@ read from the local database. These pages all have URLs of the form:
 
 .. code:: ipython2
 
-    https:///ac/subscribe//
+    https://<hostname>/ac/subscribe/<group name>/
 
 (for example: https://esgf-dev.jpl.nasa.gov/ac/subscribe/NASA%20OBS/),
 so as an node administrator you can embed this URL anywhere on your node
@@ -171,12 +171,11 @@ attribute_type=“AUTH_ONLY”. For example:
 .. code:: ipython2
 
     vi /esg/config/esgf_policies_local.xml
-    <!-- URLs that contain COUND can be downloaed by guest users 
-     (no authentication or group membershp required) -->
+
+    <!-- URLs that contain COUND can be downloaed by guest users (no authentication or group membershp required) -->
     <policy resource=".*COUND.*" attribute_type="ANY" attribute_value="" action="Read"/>
    
-    <!-- datasets with ID that contain COUND can be published by users
-         with NASA-OBS "publisher" permission -->
+    <!-- datasets with ID that contain COUND can be published by users with NASA-OBS "publisher" permission -->
     <policy resource=".*COUND.*" attribute_type="NASA OBS" attribute_value="publisher" action="Write"/>
 
 
