@@ -80,3 +80,6 @@ Example code
 -  Several example files come with the distribution.
 -  They are located in /resources/noaa/mytemplates/cog/common.
 
+.. figure:: /images/header_example_1503.png
+   :scale: 65%
+   :alt:

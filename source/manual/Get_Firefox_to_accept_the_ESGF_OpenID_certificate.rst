@@ -21,28 +21,28 @@ Step 2: Click on “Advanced”
 ---------------------------
 
 .. figure:: /images/ff_1.png
-   :scale: 85%
+   :scale: 45%
    :alt:
 
 Step 2: Click “Add Exception…”
 ------------------------------
 
 .. figure:: /images/ff_2.png
-   :scale: 85%
+   :scale: 45%
    :alt:
 
 Step 3: Click “Confirm Security Exception”
 ------------------------------------------
 
 .. figure:: /images/ff_3.png
-   :scale: 85%
+   :scale: 45%
    :alt:
 
 Step 4: Click “Resend”
 ----------------------
 
 .. figure:: /images/ff_4.png
-   :scale: 85%
+   :scale: 45%
    :alt:
 
 Step 5: Proceed with authentication

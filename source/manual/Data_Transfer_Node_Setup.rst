@@ -18,19 +18,19 @@ assumed that Linux system installed on the DTN node satisfies the same
 requirements as the ESGF data node - it is RHEL 6 or CentOS 6 with the
 EPEL software repository configured.
 
-Install Globus Connect Server IO
---------------------------------
+1. Install Globus Connect Server IO
+-----------------------------------
 
 .. code:: ipython2
  
-    # rpm --import http://www.globus.org/ftppub/globus-connect-server/RPM-GPG-KEY-Globus
-    # yum -y install http://toolkit.globus.org/ftppub/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm
-    # yum -y install globus-connect-server-io
+   # rpm --import http://www.globus.org/ftppub/globus-connect-server/RPM-GPG-KEY-Globus
+   # yum -y install http://toolkit.globus.org/ftppub/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm
+   # yum -y install globus-connect-server-io
 
 More information about installing Globus Connect Server can be found at https://www.globus.org/globus-connect-server.
 
-Add the ESGF software repository
---------------------------------
+2. Add the ESGF software repository
+-----------------------------------
 
 .. code:: ipython2  
 
@@ -46,15 +46,15 @@ Add the ESGF software repository
 If the DTN node runs RHEL Linux, replace ‘centos’ with ‘redhat’ in the
 path above. You can also copy this file from the data node.
 
-Install ESGF authorization packages
------------------------------------
+3. Install ESGF authorization packages
+--------------------------------------
 
 .. code:: ipython2
 
    yum -y install globus-authz-esgsaml-callout globus-gaa globus-adq customgsiauthzinterface
 
-Configure Globus Connect Server IO
-----------------------------------
+4. Configure Globus Connect Server IO
+-------------------------------------
 
 
 .. code:: ipython2
@@ -94,8 +94,8 @@ certificate and a private key from Globus. After all the changes run:
 globus-connect-server-io-setup -v -c
 /etc/globus-connect-server-esgf.conf
 
-Add ESGF specific GridfTP configuration
----------------------------------------
+6. Add ESGF specific GridfTP configuration
+------------------------------------------
 
 GridFTP server on the dat node runs in a chroot jail that is set up at
 /esg/gridftp_root. To keep the same configuration consistent with the
@@ -143,8 +143,8 @@ And restart GridFTP server:
 
    # service globus-gridftp-server restart
 
-Test
-----
+7. Test
+-------
 
 Now, you should be able to access datasets through the Globus Web UI
 which will do load balancing across the data node and the DTN. When you

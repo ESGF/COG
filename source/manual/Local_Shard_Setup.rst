@@ -1,5 +1,5 @@
 
-Local Shard Setup
+"Local Shard" Setup
 =================
 
 In many cases, data collections accessed through the ESGF system

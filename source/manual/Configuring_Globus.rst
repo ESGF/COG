@@ -185,9 +185,9 @@ on the Data node.
 
 .. code:: ipython2
 
-    cat /etc/gridftp.d/globus-connect-server-sharing-esgf sharing_dn
-    “/C=US/O=Globus Consortium/OU=Globus Online/OU=Transfer
-    User/CN=\ **transfer**” sharing_rp R/esg_dataroot/ 
+    cat /etc/gridftp.d/globus-connect-server-sharing-esgf
+    sharing_dn    “/C=US/O=Globus Consortium/OU=Globus Online/OU=Transfer User/CN=\ **transfer**”
+    sharing_rp R/esg_dataroot/ 
     sharing_state_dir/etc/grid-security/sharing/$USER sharing_users_allow sharer
     sharing_users_deny globus
 
@@ -273,13 +273,13 @@ This can be achieved by setting:
 
 
     thredds_file_services = 
-       HTTPServer | /thredds/fileServer/ | TDSat<node> | fileservice
-       OpenDAP | /thredds/dodsC/ | OpenDAPat<node> | fileservice
-       # GridFTP | gsiftp://<hostname>:2811/ | GRIDFTP | fileservice 
-       #Globus endpoint for restricted datasets 
-       # Globus | globus:<UUID>/ | Globus | fileservice 
-       # Globus shared endpoint for public datasets 
-       Globus | globus:<UUID_of_the_shared_endpoint> | Globus | fileservice
+            HTTPServer | /thredds/fileServer/ | TDSat<node> | fileservice
+            OpenDAP | /thredds/dodsC/ | OpenDAPat<node> | fileservice
+            GridFTP | gsiftp://<hostname>:2811/ | GRIDFTP | fileservice 
+            # Globus endpoint for restricted datasets 
+            #Globus | globus:<UUID>/ | Globus | fileservice 
+            # Globus shared endpoint for public datasets 
+            Globus | globus:<UUID_of_the_shared_endpoint> | Globus | fileservice
 
 in the esg.ini file, for example:
 "globus:2854feb6-bb21-11e5-9a07-22000b96db58/. A UUID of the shared
