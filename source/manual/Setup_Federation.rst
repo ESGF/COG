@@ -29,7 +29,7 @@ At startup time, CoG reads this file and takes the following actions:
 The list of peer nodes can also be updated without having to restart the
 local ESGF node. To do so, run the following django management command:
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_INSTALL_DIR 
    source $COG_DIR/venv/bin/activate
@@ -44,7 +44,7 @@ nodes that are found in the local database, but are missing from the
 esgf_nodes.xml file:
 
 
-.. code:: ipython2
+.. code:: console
 
    python manage.py sync_sites –delete
 
@@ -63,7 +63,7 @@ of projects from the other federated instances in one of three ways:
    "http://<your cog domain name>/share/sync/projects/")
 -  By invoking the following django management command:
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_INSTALL_DIR 
    source $COG_DIR/venv/bin/activate
@@ -73,7 +73,7 @@ of projects from the other federated instances in one of three ways:
 -  By setting up a cron job that executes the same command above. For
    example:
 
-.. code:: ipython2
+.. code:: console
 
 
    crontab -l

@@ -39,13 +39,6 @@ Welcome to ESGF CoG's documentation!
    manual/Get_Firefox_to_accept_the_ESGF_OpenID_certificate
    
 
-
-
-  
-   
-  
-
-
 Indices and tables
 ==================
 
