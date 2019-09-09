@@ -27,7 +27,7 @@ Step 2: Click the "Continue to this website (not recommended) link.
 Step 3: Enter your password in the box provided
 -----------------------------------------------
 
-.. figure:: /images/chrome_success.png
+.. figure:: /images/chrome_sucess.png
    :scale: 85%
    :alt:
 
