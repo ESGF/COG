@@ -19,7 +19,7 @@ Restricted datasets
 Step 1: (Preliminary) obtain Globus credentials for the node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Node: the same set of Globus credentials can be used when executing
+Node: the same set of Globus credentials can be used when executing
    the ESGF installation on the Index+IdP and Data nodes.
 
 The ESGF installer will install an up-to-date version of the Globus
