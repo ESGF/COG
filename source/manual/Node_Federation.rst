@@ -9,7 +9,7 @@ a seamless federation. To enable this feature, the following steps
 should be followed:
 
 Step 1: Click on the “Configure Peers” link at the bottom of the left navigation bar (Figure 1)
-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 -  This link is only available to Node Administrators.
 

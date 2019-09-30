@@ -99,7 +99,7 @@ Figure 2: Screenshot of the search results expanded to show the
 “HTTPServer” link.
 
 .. figure:: /images/group_registration_groups.png
-   :scale: 85%
+   :scale: 45%
    :alt:
 
 

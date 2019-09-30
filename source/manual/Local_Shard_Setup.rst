@@ -1,6 +1,6 @@
 
 "Local Shard" Setup
-=================
+===================
 
 In many cases, data collections accessed through the ESGF system
 comprise data that are hosted on distributed servers, and that must be

@@ -9,15 +9,17 @@ it.
 
 Every browser has a different mechanism for accepting SSL certificates
 it does not trust. Below are the steps for Chrome and Aviator, which is
-based on Chrome. Step 1: Insert your OpenID (or select an OpenID
-provider using the pulldown)
+based on Chrome.
+
 
 Step 1: Insert your OpenID (or select an OpenID provider using the pulldown) in the login box and press “Login”
 ---------------------------------------------------------------------------------------------------------------
 
+
 .. figure:: /images/login.png
    :scale: 85%
    :alt:
+
 
 Step 2: Click “Advanced” on the warning page
 --------------------------------------------
@@ -26,12 +28,14 @@ Step 2: Click “Advanced” on the warning page
    :scale: 85%
    :alt:
 
+
 Step 3: Click “Proceed to $node (unsafe)”
 -----------------------------------------
 
 .. figure:: /images/chrome_advanced.png
    :scale: 85%
    :alt:
+
 
 Step 4: Proceed with authentication.
 ------------------------------------

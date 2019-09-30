@@ -11,7 +11,7 @@ Welcome to ESGF CoG's documentation!
  
    manual/ESGF_Admin_Guide
    manual/Node_Administrator_Login
-   manual/Home_Project_Setup
+   manual/Node_Home_Project_Setup
    manual/Home_Page_Example
    manual/Data_Search_Configuration
    manual/Data_Access_Control_setup
@@ -37,6 +37,12 @@ Welcome to ESGF CoG's documentation!
    manual/Get_Chrome_to_accept_the_ESGF_OpenID_certificate
    manual/Get_Internet_Explorer_to_accept_the_ESGF_OpenID_certificate
    manual/Get_Firefox_to_accept_the_ESGF_OpenID_certificate
+   manual/CoG_Installation_from_Docker
+   manual/Installation_Prerequisites
+   manual/Installation_Initial_Setup
+   manual/Installation_Install_or_Upgrade
+   manual/Installation_Testing
+   manual/Installation_Configuration
    
 
 Indices and tables

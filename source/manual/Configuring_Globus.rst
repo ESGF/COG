@@ -19,7 +19,7 @@ Restricted datasets
 Step 1: (Preliminary) obtain Globus credentials for the node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Node: the same set of Globus credentials can be used when executing
+Node: the same set of Globus credentials can be used when executing
    the ESGF installation on the Index+IdP and Data nodes.
 
 The ESGF installer will install an up-to-date version of the Globus
@@ -75,12 +75,8 @@ republishing all of the datasets again.
 Step 4: Register the URL with Globus
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-CoG needs access to the Globus client id and secret to be able to
-request tokens. The following section must be added to the node
-configuration file: /usr/local/cog/cog_config/cog_settings.cfg on the
-Index+IdP node, where CoG is running (the values are just example,
-please replace with your Globus client id and secret received from
-Globus support):
+Node: Index+IdP node.
+
 
 The node where CoG is running must be registered as a client that is
 authorized to submit data transfer requests to the Globus service on
