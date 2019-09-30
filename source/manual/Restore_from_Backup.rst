@@ -8,7 +8,7 @@ Restoring CoG from backup
 -  if using postgres:
 
 
-.. code:: ipython2
+.. code:: console
 
     psql -U postgres -p 5432 cogdb < cogdb_2014-03-12.sql
 

@@ -9,7 +9,7 @@ on.
 Step 1: Activate the CoG Python virtual environment
 ---------------------------------------------------
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_DIR 
    source venv/bin/activate 
@@ -21,7 +21,7 @@ venv sub-directory
 
 Note: to later deactivate the Python virtual environment:
 
-.. code:: ipython2
+.. code:: console
 
    deactivate
 
@@ -30,7 +30,7 @@ Step 2: Checkout the CoG software stack
 
 First time installation only: checkout CoG from the GitHub repository:
 
-.. code:: ipython2
+.. code:: console
 
 
    cd $COG_DIR 
@@ -43,7 +43,7 @@ Every time (first time installation or upgrade): checkout a specific CoG
 tag or branch:
 
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_INSTALL_DIR 
    git checkout master 
@@ -56,7 +56,7 @@ Step 3: Install CoG and dependencies
 ------------------------------------
 
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_INSTALL_DIR 
    python setup.py install
@@ -72,7 +72,7 @@ The module django-openid-auth must be installed from a fork to be
 compatible with Django 1.9+
 
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_DIR 
    git clone https://github.com/EarthSystemCoG/django-openid-auth.git 
@@ -86,7 +86,7 @@ If enabling Globus support, the mkproxy executable (used to activate
 Globus endpoints) must be manually compiled and installed:
 
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_DIR 
    git clone https://github.com/globusonline/transfer-api-client-python.git 
@@ -100,7 +100,7 @@ Step 5: Configure CoG
 Step 5a: To configure CoG WITHOUT an ESGF node (e.g. –esgf=false)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_INSTALL_DIR 
    python setup.py setup_cog –esgf=false
@@ -115,7 +115,7 @@ This will:
 Step 5b: To configure CoG with an ESGF node (e.g. –esgf=true)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: ipython2
+.. code:: console
 
 
    cd $COG_INSTALL_DIR
@@ -159,7 +159,7 @@ Step 6: Modify configuration file
 ---------------------------------
 
 
-.. code:: ipython2
+.. code:: console
 
    python setup.py setup_cog –esgf=true
 
@@ -170,7 +170,7 @@ Step 6: Modify configuration file
 -  Run install again:
 
 
-.. code:: ipython2
+.. code:: console
 
    python setup.py install
 
@@ -184,7 +184,7 @@ Step 8: Remove potential Python conflicts
 -----------------------------------------
 
 
-.. code:: ipython2
+.. code:: console
 
    rm -rf $COG_DIR/venv/lib/python2.7/site-packages/cog*
 

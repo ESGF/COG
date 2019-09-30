@@ -9,7 +9,7 @@ Make sure you have defined the necessary environment variables and
 activated the CoG Python virtual environment as described in the
 previous steps:
 
-.. code:: ipython2
+.. code:: console
 
    export COG_DIR=/usr/local/cog
    export COG_CONFIG_DIR=$COG_DIR/cog_config
@@ -20,7 +20,7 @@ previous steps:
 
 Then, start the CoG application on the local host and specific port:
 
-.. code:: ipython2
+.. code:: console
 
    cd $COG_INSTALL_DIR
    python manage.py runserver <host>:<port>
@@ -32,7 +32,7 @@ laptop.
 
 Note: you might need to also define the following environment variable:
 
-.. code:: ipython2
+.. code:: console
 
    export PYTHON_EGG_CACHE=/tmp
 
@@ -42,7 +42,7 @@ application).
 Note: you might also need to insert the location of the postgres library
 in the system dynamic library path, for example:
 
-.. code:: ipython2
+.. code:: console
 
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/pgsql/lib
 

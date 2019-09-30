@@ -79,7 +79,7 @@ Step 3: Configure the new project as the Node “home” project
 
 To make the new project the node home project:
 
-.. code:: ipython2
+.. code:: console
 
    edit: /usr/local/cog/cog_config/cog_settings.cfg 
    change: HOME_PROJECT = TestProject 

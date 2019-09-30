@@ -46,7 +46,7 @@ In order to be downloadable through Globus, datasets must be published
 into the ESGF system with Globus URLs. This can be achieved by setting:
 
 
-.. code:: ipython2
+.. code:: console
 
     thredds_file_services =
             HTTPServer | /thredds/fileServer/ | TDSat \|fileservice
@@ -67,7 +67,7 @@ run the script,`GitHub `GitHub <https://github.com/ESGF/esgf-utils/blob/master/g
 to add the Globus URLs to THREDDS catalogs and re-harvest them without
 republishing all of the datasets again.
 
-.. code:: ipython2
+.. code:: console
 
     . /etc/esg.env 
     python add_globus_urls.py
@@ -114,7 +114,7 @@ please replace with your Globus client id and secret received from
 Globus support):
 
 
-.. code:: ipython2
+.. code:: console
 
    [GLOBUS] OAUTH_CLIENT_ID = 12345678-9012-3456-7890-123456789012
    OAUTH_CLIENT_SECRET = 2345yujhbe3456yuhgfd45234yujhfd3Gev28gFWeBWE42=
@@ -122,7 +122,7 @@ Globus support):
 
 Also an empty /esg/config/esgf_endpoints.xml file must be created:
 
-.. code:: ipython2
+.. code:: console
 
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <endpoints xmlns="http://www.esgf.org/whitelist">
@@ -161,7 +161,7 @@ specially configured to allow access to shared data.
    line at the top of the file to map the “rootAdmin” DN to the local
    “sharer” Unix user
 
-.. code:: ipython2
+.. code:: console
 
     cat /etc/grid-security/grid-mapfile
     “/O=ESGF/OU=ESGF.ORG/CN=https:///esgf-idp/openid/rootAdmin” sharer
@@ -179,7 +179,7 @@ on the Data node.
 -  Create the following file to enable sharing on the GridFTP server:
    /etc/gridftp.d/globus-connect-server-sharing-esgf:
 
-.. code:: ipython2
+.. code:: console
 
     cat /etc/gridftp.d/globus-connect-server-sharing-esgf
     sharing_dn    “/C=US/O=Globus Consortium/OU=Globus Online/OU=Transfer User/CN=\ **transfer**”
@@ -222,7 +222,7 @@ is automatically activated by the node through cached credentials).
 First, you must create a “sharer” home directory where the shared
 endpoint information can be stored:
 
-.. code:: ipython2
+.. code:: console
 
     sudo mkdir -p /esg/gridftp_root/home/sharer
     sudo chown -R sharer:sharer /esg/gridftp_root/home/sharer
@@ -265,7 +265,7 @@ In order to be downloadable through Globus, datasets must be published
 into the ESGF system with Globus URLs pointing to the shared endpoint.
 This can be achieved by setting:
 
-.. code:: ipython2
+.. code:: console
 
 
     thredds_file_services = 

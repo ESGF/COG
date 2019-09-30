@@ -14,7 +14,7 @@ Step 1: Install Python
 -  Install Anaconda
 -  2.7.10 does not work with cog, you will need to downgrade
 
-.. code:: ipython2
+.. code:: console
 
    #downgrade python install conda install 
    conda install python=2.7.9
@@ -38,7 +38,7 @@ Step 3: Set up git and github
    https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 -  Setup username and email
 
-.. code:: ipython2
+.. code:: console
 
    git config –global user.name “username”
 
@@ -47,7 +47,7 @@ Step 3: Set up git and github
 Step 4: Update pip
 ------------------
 
-.. code:: ipython2
+.. code:: console
 
     pip install -U pip
 
@@ -55,14 +55,14 @@ Step 4: Update pip
 Step 5: Install virtualenv
 --------------------------
 
-.. code:: ipython2
+.. code:: console
 
    pip install virtualenv
 
 Step 6: (CentOS only) Install C-headers for sqlite-devel and freetype-devel
 ---------------------------------------------------------------------------
 
-.. code:: ipython2
+.. code:: console
 
    yum install sqlite-devel freetype-devel
 
@@ -77,7 +77,7 @@ Step 7: (MacOSX only) Copy image libraries
    -  libssl.1.0.0.dylib
    -  libtiff.5.dylib
 
-.. code:: ipython2  
+.. code:: console  
 
    # example 
    sudo cp ~/anaconda/lib/libtiff.5.dylib /usr/local/lib
@@ -85,7 +85,7 @@ Step 7: (MacOSX only) Copy image libraries
 Step 8: Install Xcode command line tools
 ----------------------------------------
 
-.. code:: ipython2
+.. code:: console
 
 
    xcode-select –install
@@ -100,7 +100,7 @@ Step 9: Manually install Pillow
 -  wheel may be required in the install
 
 
-.. code:: ipython2
+.. code:: console
 
 
    pip install wheel 

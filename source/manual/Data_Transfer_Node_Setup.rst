@@ -21,7 +21,7 @@ EPEL software repository configured.
 1. Install Globus Connect Server IO
 -----------------------------------
 
-.. code:: ipython2
+.. code:: console
  
    # rpm --import http://www.globus.org/ftppub/globus-connect-server/RPM-GPG-KEY-Globus
    # yum -y install http://toolkit.globus.org/ftppub/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm
@@ -32,7 +32,7 @@ More information about installing Globus Connect Server can be found at https://
 2. Add the ESGF software repository
 -----------------------------------
 
-.. code:: ipython2  
+.. code:: console  
 
   # cat > /etc/yum.repos.d/esgf.repo
   [esgf]
@@ -49,7 +49,7 @@ path above. You can also copy this file from the data node.
 3. Install ESGF authorization packages
 --------------------------------------
 
-.. code:: ipython2
+.. code:: console
 
    yum -y install globus-authz-esgsaml-callout globus-gaa globus-adq customgsiauthzinterface
 
@@ -57,7 +57,7 @@ path above. You can also copy this file from the data node.
 -------------------------------------
 
 
-.. code:: ipython2
+.. code:: console
 
    Copy /etc/globus-connect-server-esgf.conf from the data node
    [Globus]
@@ -110,7 +110,7 @@ directories are accessible on the DTN node under /esg/gridftp_root the
 same as on the data node, you can copy /etc/gridftp.d/globus-esgf file
 from the data node:
 
-.. code:: ipython2 
+.. code:: console 
 
   #cat > /etc/gridftp.d/globus-esgf
    chroot_path /esg/gridftp_root
@@ -124,7 +124,7 @@ from the data node:
 
 Copy /etc/grid-security/esgsaml_auth.conf from the data node:
 
-.. code:: ipython2
+.. code:: console
 
    # cat >/etc/grid-security/esgsaml_auth.conf
    AUTHSERVICE=https:///esg-orp/saml/soap/secure/authorizationService.htm
@@ -133,13 +133,13 @@ Because GridFTP server will run in a chroot jail, you have to setup a
 chroot environment. The following command will copy CA certificates,
 passwd, group, nsswitch.conf and other files required by GridFTP server:
 
-.. code:: ipython2
+.. code:: console
 
    # globus-gridftp-server-setup-chroot -r /esg/gridftp_root
 
 And restart GridFTP server: 
 
-.. code:: ipython2
+.. code:: console
 
    # service globus-gridftp-server restart
 

@@ -11,7 +11,7 @@ Step 1: Configure the ESGF Postgres database
 
 Use the command line client to interact with the Postgres database:
 
-.. code:: ipython2
+.. code:: console
 
     psql -U dbsuper -d esgcet
 
@@ -20,7 +20,7 @@ Use the command line client to interact with the Postgres database:
 Create a new group that will control all operations on the dataset (all
 SQL commands below must be typed in only one line):
 
-.. code:: ipython2
+.. code:: console
 
     esgcet=# insert into esgf_security.group (id, name, description, visible, automatic_approval)
              values (2, ‘NASA OBS’, ‘NASA observations’, true, true);
@@ -38,7 +38,7 @@ publishing the data. In this case, we look up the “rootAdmin” user and
 assign him/her priileges on the group just created:
 
 
-.. code:: ipython2
+.. code:: console
 
     esgcet=# select id from esgf_security.user where openid like ‘%rootAdmin%’;
 
@@ -55,7 +55,7 @@ As root, edit the file /esg/config/esgf_policy_local.xml to specify one
 or more policies for reading/writing the files of your dataset. For
 example:
 
-.. code:: ipython2
+.. code:: console
 
 
     vi /esg/config/esgf_policies_local.xml
@@ -76,7 +76,7 @@ the URLs of the Attribute and Registration services that manage
 membership in the access control group. For example:
 
 
-.. code:: ipython2
+.. code:: console
 
     vi /esg/config/esgf_ats_static.xml
 
@@ -100,7 +100,7 @@ appropriate registration page for each of the ESGF access control groups
 read from the local database. These pages all have URLs of the form:
 
 
-.. code:: ipython2
+.. code:: console
 
     https://<hostname>/ac/subscribe/<group name>/
 
@@ -117,7 +117,7 @@ called .html (in HTML format) or .txt (in plain text format) under your
 local templates directory, specifically:
 
 
-.. code:: ipython2
+.. code:: console
 
     /usr/local/cog/cog_config/mytemplates/cog/access_control/licenses/.html
     or:
@@ -146,7 +146,7 @@ a restricted access control group to enable publishing of the data. For
 example:
 
 
-.. code:: ipython2
+.. code:: console
 
     vi /esg/config/esgf_policies_local.xml
 
@@ -168,7 +168,7 @@ group. In this case, they can use a policy statement with the special
 attribute_type=“AUTH_ONLY”. For example:
 
 
-.. code:: ipython2
+.. code:: console
 
     vi /esg/config/esgf_policies_local.xml
 

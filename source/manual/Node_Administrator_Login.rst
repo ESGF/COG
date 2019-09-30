@@ -10,7 +10,7 @@ login:
 Option 1: Username/Password login
 ---------------------------------
 
-.. code:: ipython2
+.. code:: console
 
     Open URL:https://<hostname>/login2/ 
     username: rootAdmin 
@@ -44,7 +44,7 @@ Option 2: OpenID login
 Figure 1: Screenshot of the Login link in the upper right corner of CoG.
 
 
-.. code:: ipython2
+.. code:: console
 
     OpenID: https://<hostname>/esgf-idp/openid/rootAdmin
 

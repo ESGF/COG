@@ -15,7 +15,7 @@ port SSL port 443 (redirection from port 80 will be configured soon).
 After the ESGF installer completes succesfully, check that you can
 access the node by typing the following URL in your favorite browser
 
-.. code:: ipython2
+.. code:: console
 
     Open URL: https//<hostname>/
     Replace: <hostname> with your Node’s fully qualified domain name (note the “https” protocol).
@@ -29,7 +29,7 @@ Alternatively, if you already have a working ESGF/CoG setup, you can
 upgrade CoG without running the full ESGF installer with the following
 procedure (as root, or prepend commands with sudo):
 
-.. code:: ipython2
+.. code:: console
 
     Stop the ESGF node: # /usr/local/bin/esg-node stop
     But start Postgres: # /etc/init.d/postgresql start
@@ -89,7 +89,7 @@ piece of functionality must be installed as soon as possible. CoG can be
 upgraded standalone by leveraging the ESGF installation infrastructure,
 simply by editing and executing the esg-cog script (as root):
 
-.. code:: ipython2
+.. code:: console
 
     cd /usr/local/bin
     edit esg-cog: set VERSION=...whatever is the CoG version you want to install...

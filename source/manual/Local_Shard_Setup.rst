@@ -31,7 +31,7 @@ The following command will create a new Solr instance configuration
 suitable for publishing and searching local data:
 
 
-.. code:: ipython2
+.. code:: console
 
     esg-node –add-replica-shard localhost:8982
 
@@ -76,7 +76,7 @@ file:
 
 -  Change the URL of the target publishing service:
 
-.. code:: ipython2
+.. code:: console
 
     from: https://your.host.name/esg-search/remote/secure/client-cert/hessian/publishingService
     to: https://your.host.name/esg-search/remote/secure/client-cert/hessian/publishingServiceLocal
@@ -84,7 +84,7 @@ file:
 Add the “shard” metadata field as part of the specific project
 configuration:
 
-.. code:: ipython2
+.. code:: console
 
     categories = 
           project | enum | true | true | 0
@@ -110,7 +110,7 @@ to find data indexed on the local shard in two ways:
    picked up by the local ESGF search service by default. Specifically,
    configure the CoG project search as follows:
 
-.. code:: ipython2
+.. code:: console
 
     Search Service URL: http://your.host.name/esg-search/search/
     Constraints: do NOT add distrib=false and do NOT specifiy any shard constraint
@@ -120,7 +120,7 @@ constraint that includes that shard. In this case, the local ESGF
 service will query only those shards that are specified in the
 constraint. For example:
 
-.. code:: ipython2
+.. code:: console
 
     Search Service URL: http://your.host.name/esg-search/search/
     Constraints: shards=localhost:8983/solr,localhost:8982/solr

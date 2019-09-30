@@ -42,7 +42,7 @@ Images for several CoG versions are publicly available on DockerHub
 (project esgfhub/esgf-cog). To download a specific version issue the
 following command:
 
-.. code:: ipython2
+.. code:: console
 
    $ docker pull esgfhub/esgf-cog:<cog_version>
 
@@ -56,7 +56,7 @@ following command:
 To download the latest development version (built at some unspecified
 time from the github ‘devel’ branch):
 
-.. code:: ipython2
+.. code:: console
 
    $ docker pull esgfhub/esgf-cog:latest
 
@@ -69,7 +69,7 @@ container, and start CoG within the container (enter the command below
 in only one line):
 
 
-.. code:: ipython2
+.. code:: console
 
    $ docker run -ti -p 8000:8000 –name mycog esgfhub/esgf-cog: ``docker-machine ip`` false true
 
@@ -125,7 +125,7 @@ Restart CoG
 To restart the same CoG container, using the same configuration,
 database, and data, issue the following command at a Docker terminal:
 
-.. code:: ipython2
+.. code:: console
 
    $ docker start -ai mycog
 
@@ -134,7 +134,7 @@ database, and data, issue the following command at a Docker terminal:
 
 To restart CoG from a completely clean slate, first delete the previous container:
 
-.. code:: ipython2
+.. code:: console
 
    $ docker rm  mycog
 
@@ -149,7 +149,7 @@ If you are doing CoG development, you may want to startup CoG from your local so
 
 First, clone the CoG repository to a location on your system, here named $COG_SRC_DIR:
 
-.. code:: ipython2
+.. code:: console
 
    $ git clone https://github.com/EarthSystemCoG/COG.git
    # optionally, check out a branch or tag
@@ -160,7 +160,7 @@ First, clone the CoG repository to a location on your system, here named $COG_SR
 Then run the CoG Docker container by mounting the local source directory on top of the image CoG installation directory:
 
 
-.. code:: ipython2
+.. code:: console
 
    $ docker run -ti -p 8000:8000 –name mycog -v $COG_SRC_DIR:/usr/local/cog/cog_install esgfhub/esgf-cog: ``docker-machine ip`` false true
 

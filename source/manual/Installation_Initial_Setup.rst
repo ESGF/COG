@@ -18,7 +18,7 @@ This will be the parent directory under which all CoG-related software
 -  The user executing the installation must have write permissions to
    this directory.
 
-.. code:: ipython2
+.. code:: console
 
    mkdir <COG_DIR>
 
@@ -34,7 +34,7 @@ file and external media sub-directories.
 -  The user executing the installation must have write permissions to
    this directory.
 
-.. code:: ipython2
+.. code:: console
 
    mkdir <COG_CONFIG_DIR>r
 
@@ -46,7 +46,7 @@ This is where the source code will be located.
 -  Preferably, this directory should be located under
 -  For example, use = /usr/local/cog/cog_install
 
-.. code:: ipython2
+.. code:: console
 
    mkdir <COG_INSTALL_DIR>
 
@@ -57,7 +57,7 @@ How environment variables are set varies from shell to shell. Below is
 the example for Bash. These commands would be placed in the
 ~/.bash_profile or ~/.bashrc files. For example:
 
-.. code:: ipython2
+.. code:: console
 
    export COG_DIR=/usr/local/cog
    export COG_CONFIG_DIR=$COG_DIR/cog_config
@@ -69,7 +69,7 @@ Step 5: Set up a Python virtual environment
 This will be the location for the CoG specific Python libraries and
 related dependencies.
 
-.. code:: ipython2
+.. code:: console
 
    cd virtualenv venv
 
@@ -82,7 +82,7 @@ Note, if you have multiple installations of python installed, you can
 specify which python to use through the -p option. By default,
 virtualenv will use the python used to install virtualenv.
 
-.. code:: ipython2
+.. code:: console
 
    cd <COG_DIR>
    virtualenv -p /usr/bin/python venv

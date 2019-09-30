@@ -17,7 +17,7 @@ the CoG source code itself: resources/scripts/sync_projects.sh - which
 may need to be customized to your environment. For example, to
 synchronize the projects every hour:
 
-.. code:: ipython2
+.. code:: console
 
     0 * * * * /esg/config/sync_projects.sh
 
@@ -25,7 +25,7 @@ The script sets up some needed environment variables. then executes the
 “sync_project” management command that is included with the CoG
 distribution:
 
-.. code:: ipython2
+.. code:: console
 
     #!/bin/sh
 
@@ -50,14 +50,14 @@ It is highly recommended that both the CoG and the ESGCET databases be
 backed up daily. This can be accomplished by setting up a cron job to
 run nightly as follows:
 
-.. code:: ipython2
+.. code:: console
 
     crontab -l
     0 0 * * * /esg/config/db_backups.sh
 
 where the script has the following content:
 
-.. code:: ipython2
+.. code:: console
 
    #!/bin.sh 
    export PATH=/usr/local/pgsql/bin:PATH 
@@ -67,13 +67,13 @@ where the script has the following content:
 NOTE: for the script to run as cron, the postgres database password must
 be located in file ~/.pgpass with the format:
 
-.. code:: ipython2
+.. code:: console
 
     host_name:port:database_name:database_user:database_password
 
 Also the file permissions must be set as follows:
 
-.. code:: ipython2
+.. code:: console
 
     chmod 0600 ~/.pgpass
 
@@ -88,7 +88,7 @@ delete local user stubs of remote users that have been deleted, the ESGF
 node administraor can run the following command (in the proper python
 virtual environment):
 
-.. code:: ipython2
+.. code:: console
 
     cd $COG_iNSTALL_DIR 
     python manage.py sync_users
@@ -99,13 +99,13 @@ resources/scripts/sync_users.sh, and may need to be customized to your
 ESGF installation. For example, to run the script every night at
 midnight:
 
-.. code:: ipython2
+.. code:: console
 
     0 0 * * * /esg/config/sync_users.sh
 
 where the script content is:
 
-.. code:: ipython2
+.. code:: console
 
     #!/bin/sh
 
