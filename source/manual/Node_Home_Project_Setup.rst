@@ -22,9 +22,9 @@ Step 1: Register a new project
    -  Short Name: choose a short name (no spaces) that is unique for
       your node. Theconvention for ESGF Nodes is to choose a home
       project name of the form “ESGF-XXX” where XXX is a unique name for
-      your ESGF Node and institution. Examples: “ESGF-JPL” (for
-      https://esg-datanode.jpl.nasa.gov/projects/esgf-jpl/) or
-      “ESGF-ESRL” (for https://esgf.esrl.noaa.gov/projects/esgf-esrl/).
+      your ESGF Node and institution. Examples: “ESGF-LLNL” (for
+      https://esgf-node.llnl.gov/projects/esgf-llnl/) or
+      “ESGF-GFDL” (for https://esgdata.gfdl.noaa.gov/projects/esgf-gfdl/).
       The home project short name is the only attribute of a project
       that can never be changed, since it enters (in lower case form) in
       ALL URLs for that project. If you decide you don’t like the name

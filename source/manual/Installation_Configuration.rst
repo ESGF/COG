@@ -44,7 +44,7 @@ Configuration Variables
    "PASSWORD_EXPIRATION_DAYS", "Optional number of days after which password expire. 0 means passwords never expire.", "PASSWORD_EXPIRATION_DAYS=150"
    "IDP_REDIRECT", "Optional top-level URL to redirect user registration (no trailing '/'). Use only if the CoG installation has no associated ESGF node.", "IDP_REDIRECT="
    "MEDIA_ROOT", "Location of node-specific site_media directory (where all projects and users content is uploaded to)", "MEDIA_ROOT = /Users/sylvia.murphy/COG/cog_config/site_media"
-   "DEFAULT_SEARCH_URL", "Default ESGF search service URL for projects that enable the data search", "DEFAULT_SEARCH_URL=http://esg-datanode.jpl.nasa.gov/esg-search/search/ [ESGF]"
+   "DEFAULT_SEARCH_URL", "Default ESGF search service URL for projects that enable the data search", "DEFAULT_SEARCH_URL=http://esgf-node.llnl.gov/esg-search/search/ [ESGF]"
    "ESGF_HOSTNAME", "ESGF Identity Provider hostname", "ESGF_HOSTNAME=hydra.fsl.noaa.gov"
    "ESGF_DBURL", "ESGF postgres database access string", "ESGF_DBURL=postgresql://:@localhost/esgcet"
    "IDP_WHITELIST", "White list of trusted ESGF identity providers", "IDP_WHITELIST = /esg/config/esgf_idp.xml, /esg/config/esgf_idp_static.xml"

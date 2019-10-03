@@ -77,14 +77,14 @@ membership in the access control group. For example:
 
 
 .. code:: console
-
-    vi /esg/config/esgf_ats_static.xml
-
-    <!-- NASA Obs4MIPs --><!-- NASA Obs4MIPs -->
-    <attribute type="NASA OBS"               
-    attributeService="https://esgf-dev.jpl.nasa.gov/esgf-idp/saml/soap/secure/attributeService.htm"
-    description="NASA Observational Data"
-    registrationService="https://esgf-dev.jpl.nasa.gov/esgf-idp/secure/registrationService.htm"/>
+   
+   vi /esg/config/esgf_ats_static.xml
+    
+   <!-- NASA Obs4MIPs -->
+   <attribute type="NASA OBS"               
+   attributeService="https://esgf-node.llnl.gov/esgf-idp/saml/soap/secure/attributeService.htm"
+   description="NASA Observational Data"
+   registrationService="https://esgf-node.llnl.gov/esgf-idp/secure/registrationService.htm"/>
 
 
 When done, you may restart the node, but there is really no need to as
@@ -104,7 +104,7 @@ read from the local database. These pages all have URLs of the form:
 
     https://<hostname>/ac/subscribe/<group name>/
 
-(for example: https://esgf-dev.jpl.nasa.gov/ac/subscribe/NASA%20OBS/),
+(for example: https://esgf-node.llnl.gov/ac/subscribe/NASA%20OBS/),
 so as an node administrator you can embed this URL anywhere on your node
 where content is allowed: for example, on the node home page, or on the
 home page for the specific “NASA OBS” project. Users can visit the
