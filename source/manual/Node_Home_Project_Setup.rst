@@ -34,7 +34,7 @@ Step 1: Register a new project
    -  Long Name: the project long name will appear as the title of the
       node home page. This can be changed later using the “Update
       Project” link in the left “Administrators” menu. Example:
-      “ESGF@NASA/JPL”.
+      “ESGF-LLNL”.
    -  Description: the project description will be used as the initial
       content of the node home page. This can be changed later by
       editing the project home page via the wiki functionality. Example:
@@ -84,7 +84,7 @@ To make the new project the node home project:
    edit: /usr/local/cog/cog_config/cog_settings.cfg 
    change: HOME_PROJECT = TestProject 
    to: HOME_PROJECT = <home project short name> 
-   example: HOME_PROJECT = ESGF-JPL
+   example: HOME_PROJECT = ESGF-LLNL
 
 Since you are editing this file, you may also want to:
 
@@ -123,4 +123,4 @@ For help in using the wiki, formatting images etc, there is a list of
 web-based tutorials to help you get started.
 
 For live examples of customized ESGF home pages, see the ESGF Node @
-NOAA/ESRL and ESGF Node @ NASA/JPL.
+NOAA/ESRL and ESGF Node @ LLNL.

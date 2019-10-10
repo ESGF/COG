@@ -168,7 +168,7 @@ specially configured to allow access to shared data.
     "^.*$" globus
 
     for example:
-    “/O=ESGF/OU=ESGF.ORG/CN=https://esgf-node.jpl.nasa.gov/esgf-idp/openid/rootAdmin” sharer
+    “/O=ESGF/OU=ESGF.ORG/CN=https://esgf-node.llnl.gov/esgf-idp/openid/rootAdmin” sharer
     "^.*$" globus
 
 Note that the OpenId inside the DN refers to the rootAdmin account on
